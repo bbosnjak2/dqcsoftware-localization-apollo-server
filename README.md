@@ -3,6 +3,18 @@
 This package provides the `translationManager` to support Apollo Server and
 `type-graphql` (in conjunction with `typedi`).
 
+## NOTE
+
+Because this package assumes the translation files are located in the `src/localization/generated`
+folder.
+
+It also assumes the following entry exists in the `tsconfig.json` file:
+
+    "baseUrl": "./src",
+
+If the `baseUrl` is incorrect, errors will occur indicating the `translationManager.js` module
+cannot locate the `localization/generated/AvailableTranslations` module.
+
 ## Wire Up
 
 ### Dependency Injection

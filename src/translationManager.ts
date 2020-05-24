@@ -1,6 +1,6 @@
 import express from 'express';
-import {availableTranslations} from 'src/localization/generated/AvailableTranslations';
-import {ITranslation} from 'src/localization/generated/ITranslation';
+import {availableTranslations} from 'localization/generated/AvailableTranslations';
+import {ITranslation} from 'localization/generated/ITranslation';
 import {ResolverData} from 'type-graphql';
 import {Container} from 'typedi';
 

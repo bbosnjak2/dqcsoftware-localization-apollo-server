@@ -1,0 +1,13 @@
+{
+    "roots": ["<rootDir>/src"],
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "\\.test.ts$",
+    "moduleFileExtensions": ["ts", "js", "json"],
+    "moduleDirectories": ["node_modules", "src"],
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+        "src/(.*)": "<rootDir>/src/$1"
+    }
+}
