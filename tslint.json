@@ -1,0 +1,11 @@
+{
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "rules": {
+        "eofline": true,
+        "class-name": true,
+        "comment-format": true,
+        "interface-name": [true, "always-prefix"],
+        "no-console": false,
+        "quotemark": [true, "single"]
+    }
+}
