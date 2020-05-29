@@ -8,10 +8,10 @@ To prepare the release, execute the following set of commands:
 
     rmdir /s /q lib
     del *.tgz
-    npm run build
-    npm run lint
     npm run format
+    npm run lint
     npm run test
+    npm run build
 
 To package the release, execute the following:
 

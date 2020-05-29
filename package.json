@@ -1,6 +1,6 @@
 {
     "name": "dqcsoftware-localization-apollo-server",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "DreamQuest Canada Localization Support for Apollo Server",
     "main": "lib/translationManager.js",
     "types": "lib/translationManager.d.ts",
@@ -9,6 +9,7 @@
     "license": "ISC",
     "scripts": {
         "test": "jest --config jestconfig.json",
+        "test-coverage": "jest --config jestconfig.json --coverage",
         "build": "tsc",
         "format": "prettier --write \"src/**/*.ts\"",
         "lint": "tslint -p tsconfig.json"
