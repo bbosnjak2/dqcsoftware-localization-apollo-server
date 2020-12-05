@@ -1,10 +1,12 @@
 import express from 'express';
 import * as faker from 'faker';
-import {translationManager} from 'translationManager';
+import {TranslationManager} from '../translationManager';
 import {availableTranslations} from '../localization/generated/AvailableTranslations';
 import {ITranslation} from '../localization/generated/ITranslation';
 
 describe('translationManager', () => {
+    TranslationManager.instance = new TranslationManager<ITranslation>(availableTranslations);
+
     const createHeaders = (localizationValue: string): {[key: string]: string} => {
         const headers: {[key: string]: string} = {};
 
@@ -23,7 +25,7 @@ describe('translationManager', () => {
             availableTranslations[0].isDefault = false;
             availableTranslations[1].isDefault = true;
 
-            const actualDefaultTranslation = translationManager.getDefaultTranslation();
+            const actualDefaultTranslation = TranslationManager.instance.getDefaultTranslation();
 
             expect(actualDefaultTranslation).toBeDefined();
             expect(actualDefaultTranslation.translation.name).toBe('Canadian French translation');
@@ -34,7 +36,7 @@ describe('translationManager', () => {
         it('should return the default translation if header is missing', () => {
             const mockRequest: express.Request = ({headers: []} as any) as express.Request;
 
-            const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+            const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
             expect(actualTranslation).toBeDefined();
             expect(actualTranslation.translation.name).toBe('default translation');
@@ -45,7 +47,7 @@ describe('translationManager', () => {
                 headers: createHeaders(''),
             } as any) as express.Request;
 
-            const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+            const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
             expect(actualTranslation).toBeDefined();
             expect(actualTranslation.translation.name).toBe('default translation');
@@ -56,7 +58,7 @@ describe('translationManager', () => {
                 headers: createHeaders(faker.random.alphaNumeric(5)),
             } as any) as express.Request;
 
-            const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+            const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
             expect(actualTranslation).toBeDefined();
             expect(actualTranslation.translation.name).toBe('default translation');
@@ -67,7 +69,7 @@ describe('translationManager', () => {
                 headers: createHeaders('en-CA'),
             } as any) as express.Request;
 
-            const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+            const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
             expect(actualTranslation).toBeDefined();
             expect(actualTranslation.translation.name).toBe('default translation');
@@ -79,7 +81,7 @@ describe('translationManager', () => {
                     headers: createHeaders('fr-CA'),
                 } as any) as express.Request;
 
-                const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+                const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
                 expect(actualTranslation).toBeDefined();
                 expect(actualTranslation.translation.name).toBe('Canadian French translation');
@@ -90,7 +92,7 @@ describe('translationManager', () => {
                     headers: createHeaders('FR-ca'),
                 } as any) as express.Request;
 
-                const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+                const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
                 expect(actualTranslation).toBeDefined();
                 expect(actualTranslation.translation.name).toBe('Canadian French translation');
@@ -101,7 +103,7 @@ describe('translationManager', () => {
                     headers: createHeaders('xx-ca'),
                 } as any) as express.Request;
 
-                const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+                const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
                 expect(actualTranslation).toBeDefined();
                 expect(actualTranslation.translation.name).toBe('{Test translation}');
@@ -112,7 +114,7 @@ describe('translationManager', () => {
                     headers: createHeaders('zz-zz'),
                 } as any) as express.Request;
 
-                const actualTranslation = translationManager.getTranslationFromRequestHeader(mockRequest);
+                const actualTranslation = TranslationManager.instance.getTranslationFromRequestHeader(mockRequest);
 
                 expect(actualTranslation).toBeDefined();
                 expect(actualTranslation.translation.name).toBe('default translation');
@@ -132,7 +134,7 @@ describe('translationManager', () => {
 
         it('should return a container for the request ID', () => {
             const expectedRequestId = faker.random.alphaNumeric(10);
-            const actualContainer = translationManager.requestContainerFactory(
+            const actualContainer = TranslationManager.instance.requestContainerFactory(
                 createArgs({
                     headerValue: '',
                     requestId: expectedRequestId,
@@ -144,7 +146,7 @@ describe('translationManager', () => {
         });
 
         it('should return a container that provides the requested translation', () => {
-            const actualContainer = translationManager.requestContainerFactory(
+            const actualContainer = TranslationManager.instance.requestContainerFactory(
                 createArgs({
                     headerValue: 'xx',
                     requestId: faker.random.alphaNumeric(10),
