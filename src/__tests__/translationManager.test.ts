@@ -1,8 +1,8 @@
-import express from 'express';
+import * as express from 'express';
 import * as faker from 'faker';
-import {TranslationManager} from '../translationManager';
 import {availableTranslations} from '../localization/generated/AvailableTranslations';
 import {ITranslation} from '../localization/generated/ITranslation';
+import {TranslationManager} from '../translationManager';
 
 describe('translationManager', () => {
     TranslationManager.instance = new TranslationManager<ITranslation>(availableTranslations);

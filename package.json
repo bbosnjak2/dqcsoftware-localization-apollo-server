@@ -1,6 +1,6 @@
 {
     "name": "dqcsoftware-localization-apollo-server",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "DreamQuest Canada Localization Support for Apollo Server",
     "main": "lib/translationManager.js",
     "types": "lib/translationManager.d.ts",
@@ -19,12 +19,12 @@
         "@types/graphql": "^14.5.0",
         "@types/node": "^14.14.9",
         "class-validator": "^0.12.2",
+        "dqcsoftware-localization-apollo-server-common": "^1.0.3",
         "express": "^4.17.1",
         "type-graphql": "^1.1.1",
         "typedi": "^0.8.0"
     },
     "devDependencies": {
-        "dqcsoftware-localization-common": "file:private-packages/dqcsoftware-localization-common-1.0.2.tgz",
         "@types/faker": "^4.1.12",
         "@types/jest": "^25.2.3",
         "faker": "^4.1.0",

@@ -17,11 +17,14 @@ To package the release, execute the following:
 
     npm pack
 
-Test the `tgz` in another app using
+To publish the package, execute the following:
 
-    `npm install --save-dev <package>.tgz`
+    npm publish --registry https://npm.pkg.jetbrains.space/dqcsoftware/p/dqc-localization/dqcsoftware-localization-npm/
+
+Install/test in another app using
+
+    npm install --save dqcsoftware-localization-apollo-server@latest --registry https://npm.pkg.jetbrains.space/dqcsoftware/p/dqc-localization/dqcsoftware-localization-npm/
 
 Once verified:
 
--   Add the `tgz` to git and commit
 -   Merge to `develop`

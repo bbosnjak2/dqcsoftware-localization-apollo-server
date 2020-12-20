@@ -73,3 +73,10 @@ services as shown in the example below:
             const translatedLabel = this.lc.fields.emailAddress;
         });
     }
+
+# Release Notes
+
+## 1.0.3
+
+- deploy built NPM package to DQC Software Jetbrains Space private NPM repo
+
