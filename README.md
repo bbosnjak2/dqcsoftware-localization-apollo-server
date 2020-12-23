@@ -3,6 +3,10 @@
 This package provides the `translationManager` to support Apollo Server and
 `type-graphql` (in conjunction with `typedi`).
 
+Installation:
+
+    npm install --save @dqcsoftware-localization/apollo-server@latest
+
 ## NOTE
 
 Because this package assumes the translation files are located in the `src/localization/generated`
@@ -75,6 +79,12 @@ services as shown in the example below:
     }
 
 # Release Notes
+
+## 1.0.4
+
+- changed to scoped packages
+- renamed package to @dqcsoftware-localization/apollo-server
+- some cleanups
 
 ## 1.0.3
 

@@ -1,4 +1,4 @@
-import {IAvailableTranslation} from 'dqcsoftware-localization-apollo-server-common/lib/interfaces/IAvailableTranslation';
+import {IAvailableTranslation} from '@dqcsoftware-localization/common/lib/interfaces/IAvailableTranslation';
 import {ITranslation} from 'localization/generated/ITranslation';
 import {enCA} from './enCA';
 import {frCA} from './frCA';

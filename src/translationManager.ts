@@ -1,4 +1,4 @@
-import {IAvailableTranslation} from 'dqcsoftware-localization-apollo-server-common/lib/interfaces/IAvailableTranslation';
+import {IAvailableTranslation} from '@dqcsoftware-localization/common/lib/interfaces/IAvailableTranslation';
 import express from 'express';
 import {ResolverData} from 'type-graphql';
 import {Container} from 'typedi';

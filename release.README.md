@@ -21,10 +21,6 @@ To publish the package, execute the following:
 
     npm publish --registry https://npm.pkg.jetbrains.space/dqcsoftware/p/dqc-localization/dqcsoftware-localization-npm/
 
-Install/test in another app using
-
-    npm install --save dqcsoftware-localization-apollo-server@latest --registry https://npm.pkg.jetbrains.space/dqcsoftware/p/dqc-localization/dqcsoftware-localization-npm/
-
 Once verified:
 
 -   Merge to `develop`
